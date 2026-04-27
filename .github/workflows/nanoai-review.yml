@@ -25,12 +25,12 @@ env:
   NANOAGENT_MODEL: ${{ vars.NANOAGENT_MODEL || 'gpt-5.4' }}
   NANOAGENT_PROVIDER: ${{ vars.NANOAGENT_PROVIDER || 'openai' }}
   NANOAGENT_THINKING: ${{ vars.NANOAGENT_THINKING || 'off' }}
-  NANOAGENT_CLI_VERSION: ${{ vars.NANOAGENT_CLI_VERSION || 'V0.0.6' }}
 
 jobs:
   review:
     name: NanoAI review
     runs-on: ubuntu-24.04
+    environment: a
     if: ${{ github.event_name != 'pull_request_target' || github.event.pull_request.draft == false }}
 
     steps:
@@ -40,18 +40,13 @@ jobs:
           ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.base.sha || github.sha }}
           fetch-depth: 0
 
-      - name: Skip NanoAI when API key is missing
-        if: ${{ env.NANOAGENT_API_KEY == '' }}
-        run: echo "NanoAI review skipped because the NANOAGENT_API_KEY secret is not configured."
-
       - name: Install NanoAI
-        if: ${{ env.NANOAGENT_API_KEY != '' }}
         run: |
-          curl -fsSL https://raw.githubusercontent.com/rizwan3d/NanoAgent/master/scripts/install.sh | bash -s -- "$NANOAGENT_CLI_VERSION"
+          curl -fsSL https://raw.githubusercontent.com/rizwan3d/NanoAgent/master/scripts/install.sh | bash
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
       - name: Review pull request
-        if: ${{ github.event_name == 'pull_request_target' && env.NANOAGENT_API_KEY != '' }}
+        if: ${{ github.event_name == 'pull_request_target' }}
         env:
           NANOAI_REVIEW_MODE: pr
           NANOAI_PR_NUMBER: ${{ github.event.pull_request.number }}
