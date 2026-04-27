@@ -1,0 +1,19 @@
+{
+  "memory": {
+    "requireApprovalForWrites": true,
+    "allowAutoFailureObservation": true,
+    "allowAutoManualLessons": false,
+    "redactSecrets": true,
+    "maxEntries": 500,
+    "maxPromptChars": 12000,
+    "disabled": false
+  },
+  "toolAudit": {
+    "enabled": false,
+    "redactSecrets": true,
+    "maxArgumentsChars": 12000,
+    "maxResultChars": 12000
+  },
+  "customTools": {},
+  "mcpServers": {}
+}

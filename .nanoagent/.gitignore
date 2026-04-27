@@ -1,0 +1,3 @@
+logs/*.jsonl
+memory/*.jsonl
+*.local.json
