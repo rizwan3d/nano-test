@@ -33,13 +33,45 @@ def print_fibonacci(n):
     print(f"Fibonacci sequence ({n} terms): {fib_sequence}")
 
 
+def powers_of_two(limit=512):
+    """
+    Generate powers of 2 up to the specified limit.
+    
+    Args:
+        limit: Maximum value for powers of 2 (default: 512)
+        
+    Returns:
+        List of powers of 2 up to the limit
+    """
+    result = []
+    power = 1
+    while power <= limit:
+        result.append(power)
+        power *= 2
+    return result
+
+
+def print_powers_of_two(limit=512):
+    """
+    Print powers of 2 up to the specified limit.
+    
+    Args:
+        limit: Maximum value for powers of 2 (default: 512)
+    """
+    powers = powers_of_two(limit)
+    print(f"Powers of 2 up to {limit}: {powers}")
+
+
 def main():
-    """Main function to demonstrate Fibonacci printing."""
-    # Call the function with different values
+    """Main function to demonstrate Fibonacci and powers of 2 printing."""
+    # Call Fibonacci functions
     print_fibonacci(5)
     print_fibonacci(10)
     print_fibonacci(1)
     print_fibonacci(0)
+    
+    # Call powers of 2 function
+    print_powers_of_two(512)
 
 
 if __name__ == "__main__":

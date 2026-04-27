@@ -1,7 +1,7 @@
 """Unit tests for fibonacci module."""
 
 import unittest
-from fibonacci import fibonacci, print_fibonacci
+from fibonacci import fibonacci, print_fibonacci, powers_of_two, print_powers_of_two
 
 
 class TestFibonacci(unittest.TestCase):
@@ -38,6 +38,34 @@ class TestFibonacci(unittest.TestCase):
             print_fibonacci(0)
         except Exception as e:
             self.fail(f"print_fibonacci raised an exception: {e}")
+
+
+class TestPowersOfTwo(unittest.TestCase):
+    
+    def test_powers_of_two_default_limit(self):
+        """Test powers of 2 with default limit (512)."""
+        expected = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+        self.assertEqual(powers_of_two(), expected)
+    
+    def test_powers_of_two_custom_limit(self):
+        """Test powers of 2 with custom limit."""
+        self.assertEqual(powers_of_two(16), [1, 2, 4, 8, 16])
+    
+    def test_powers_of_two_zero_limit(self):
+        """Test powers of 2 with zero limit."""
+        self.assertEqual(powers_of_two(0), [])
+    
+    def test_powers_of_two_one_limit(self):
+        """Test powers of 2 with limit of 1."""
+        self.assertEqual(powers_of_two(1), [1])
+    
+    def test_print_powers_of_two(self):
+        """Test that print_powers_of_two doesn't raise exceptions."""
+        try:
+            print_powers_of_two(512)
+            print_powers_of_two(0)
+        except Exception as e:
+            self.fail(f"print_powers_of_two raised an exception: {e}")
 
 
 if __name__ == "__main__":
