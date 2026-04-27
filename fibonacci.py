@@ -1,6 +1,6 @@
-def fibonacci(n):
+def print_fibona(n):
     """
-    Generate Fibonacci sequence up to n terms and return the list.
+    Print Fibonacci sequence up to n terms.
     
     Args:
         n: Number of terms in the Fibonacci sequence
@@ -22,7 +22,7 @@ def fibonacci(n):
     return fib
 
 
-def print_fibonacci(n):
+def print_fibona(n):
     """
     Print Fibonacci sequence up to n terms.
     
@@ -36,10 +36,10 @@ def print_fibonacci(n):
 def main():
     """Main function to demonstrate Fibonacci printing."""
     # Call the function with different values
-    print_fibonacci(5)
-    print_fibonacci(10)
-    print_fibonacci(1)
-    print_fibonacci(0)
+    print_fibona(5)
+    print_fibona(10)
+    print_fibona(1)
+    print_fibona(0)
 
 
 if __name__ == "__main__":
