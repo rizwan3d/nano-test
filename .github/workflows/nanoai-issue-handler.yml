@@ -21,8 +21,8 @@ env:
   NANOAGENT_MODEL: ${{ vars.NANOAGENT_MODEL || 'gpt-5.4' }}
   NANOAGENT_PROVIDER: ${{ vars.NANOAGENT_PROVIDER || 'openai' }}
   NANOAGENT_THINKING: ${{ vars.NANOAGENT_THINKING || 'off' }}
-  Application__Permissions__AutoApproveAllTools: "true"
   Application__Permissions__auto_approve_all_tools: "true"
+
 
 jobs:
   handle:
