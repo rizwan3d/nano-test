@@ -2,7 +2,8 @@
 set -euo pipefail
 
 workspace="${GITHUB_WORKSPACE:-$(pwd)}"
-artifacts_dir="${NANOAI_ARTIFACTS_DIR:-artifacts/nanoai-issue-handler}"
+artifacts_base="${RUNNER_TEMP:-${workspace}/artifacts}"
+artifacts_dir="${NANOAI_ARTIFACTS_DIR:-${artifacts_base}/nanoai-issue-handler}"
 nanoai_command="${NANOAI_COMMAND:-nanoai}"
 issue_number="${NANOAI_ISSUE_NUMBER:?NANOAI_ISSUE_NUMBER is required.}"
 base_branch="${NANOAI_BASE_BRANCH:-${GITHUB_REF_NAME:-main}}"

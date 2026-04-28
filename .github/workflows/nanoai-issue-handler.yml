@@ -72,6 +72,7 @@ jobs:
 
       - name: Handle issue with NanoAI
         env:
+          NANOAI_ARTIFACTS_DIR: ${{ runner.temp }}/nanoai-issue-handler
           NANOAI_ISSUE_NUMBER: ${{ github.event.issue.number }}
           NANOAI_BASE_BRANCH: ${{ github.event.repository.default_branch }}
         run: bash .github/nanoai-issue-handler.sh
@@ -81,6 +82,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: nanoai-issue-handler
-          path: artifacts/nanoai-issue-handler
+          path: ${{ runner.temp }}/nanoai-issue-handler
           if-no-files-found: ignore
           retention-days: 14
