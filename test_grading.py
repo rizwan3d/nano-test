@@ -250,8 +250,8 @@ class TestGradeService(unittest.TestCase):
         # Standard strategy
         gpa_standard = self.service.get_student_gpa("S001")
         
-        # Swap to percentage strategy
-        self.service._grading_strategy = PercentageGradingStrategy()
+        # Swap to percentage strategy using public method
+        self.service.set_grading_strategy(PercentageGradingStrategy())
         gpa_percentage = self.service.get_student_gpa("S001")
         
         # They should be different
