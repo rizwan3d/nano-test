@@ -15,5 +15,10 @@
     "maxResultChars": 12000
   },
   "customTools": {},
-  "mcpServers": {}
+  "mcpServers": {},
+  "Application": {
+    "Permissions": {
+      "auto_approve_all_tools": true
+    }
+  }
 }
