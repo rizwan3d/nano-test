@@ -37,6 +37,16 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+
+      - name: Install OS sandbox dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bubblewrap
+
       - name: Install NanoAI
         run: |
           curl -fsSL https://raw.githubusercontent.com/rizwan3d/NanoAgent/master/scripts/install.sh | bash
