@@ -66,6 +66,15 @@ class GradeService:
         grades = self._grade_repo.get_grades(student_id)
         return self._grading_strategy.calculate_gpa(grades)
     
+    def set_grading_strategy(self, strategy: IGradingStrategy) -> None:
+        """
+        Change the grading strategy at runtime.
+        
+        Args:
+            strategy: New grading strategy to use
+        """
+        self._grading_strategy = strategy
+    
     def get_student_letter_grades(self, student_id: str) -> List[str]:
         """
         Get letter grades for a student's grades.
