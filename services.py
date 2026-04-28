@@ -30,6 +30,10 @@ class GradeService:
         self._grade_repo = grade_repo
         self._grading_strategy = grading_strategy
     
+    def set_grading_strategy(self, strategy: IGradingStrategy) -> None:
+        """Change the grading strategy at runtime."""
+        self._grading_strategy = strategy
+    
     def add_student(self, student: Student) -> None:
         """Add a new student."""
         self._student_repo.add_student(student)

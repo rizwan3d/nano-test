@@ -86,12 +86,12 @@ def main():
     print("=" * 60)
     print()
     print(">>> Switching to PercentageGradingStrategy...")
-    grade_service._grading_strategy = PercentageGradingStrategy()
-    print(f"   Alice's GPA (percentage): {grade_service.get_student_gpa('S001'):.1f}%")
+    grade_service.set_grading_strategy(PercentageGradingStrategy())
+    print(f"   Alice's GPA (Percentage): {grade_service.get_student_gpa('S001'):.1f}%")
     print()
     
     print(">>> Switching to EuropeanGradingStrategy...")
-    grade_service._grading_strategy = EuropeanGradingStrategy()
+    grade_service.set_grading_strategy(EuropeanGradingStrategy())
     print(f"   Alice's GPA (European 1-10 scale): {grade_service.get_student_gpa('S001'):.1f}")
     print()
     
