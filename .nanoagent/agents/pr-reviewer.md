@@ -58,3 +58,5 @@ Return GitHub-flavored Markdown. Put findings first.
 For each actionable issue include severity, file path, line or nearest symbol when practical, why it matters, and a concrete requested change. Ground each finding in concrete evidence and do not invent findings from uncertainty.
 
 If there are no actionable issues, say "No blocking findings." and briefly mention any residual risk or testing gaps.
+
+Be strict but constructive. Do not rewrite the entire code unless necessary. Prioritize practical improvements.
