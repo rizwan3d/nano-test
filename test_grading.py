@@ -124,14 +124,14 @@ class TestEuropeanGradingStrategy(unittest.TestCase):
         """Test GPA on European 1-10 scale."""
         grades = [Grade(100, "Math"), Grade(0, "Science")]
         gpa = self.strategy.calculate_gpa(grades)
-        # Average 50% -> European grade should be around 5.5
+        # Average 50% => European grade should be around 5.5
         self.assertAlmostEqual(gpa, 5.5, places=1)
     
     def test_get_letter_grade_european(self):
         """Test letter grade on European scale."""
         grade = Grade(90, "Math")
         letter = self.strategy.get_letter_grade(grade)
-        # 90% -> 9.1 on European scale
+        # 90% => 9.1 on European scale
         self.assertIn("9.1", letter)
 
 
@@ -212,7 +212,7 @@ class TestGradeService(unittest.TestCase):
         self.service.add_grade("S001", Grade(95, "Math"))
         self.service.add_grade("S001", Grade(85, "Science"))
         gpa = self.service.get_student_gpa("S001")
-        # Average 90% -> GPA 4.0
+        # Average 90% => GPA 4.0
         self.assertEqual(gpa, 4.0)
     
     def test_get_student_letter_grades(self):
@@ -250,8 +250,8 @@ class TestGradeService(unittest.TestCase):
         # Standard strategy
         gpa_standard = self.service.get_student_gpa("S001")
         
-        # Swap to percentage strategy
-        self.service._grading_strategy = PercentageGradingStrategy()
+        # Swap to percentage strategy using public method
+        self.service.set_grading_strategy(PercentageGradingStrategy())
         gpa_percentage = self.service.get_student_gpa("S001")
         
         # They should be different
